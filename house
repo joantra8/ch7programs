@@ -1,0 +1,27 @@
+
+public class House {
+	public static void addRoof() {
+		System.out.format("%6s", "/");
+		System.out.format("%8s", "\\");
+		System.out.format("%16s", "/");
+		System.out.format("%16s", "\\\n");
+	}
+    public static void addBase() {
+    	
+    	for (int i = 1; i <= 4; i++)
+    	System.out.format("%-5s", "|\n");
+    	System.out.format("%10s", "|\n");
+}
+    public static void addWalk() {
+    	
+    	for (int i = 1; i <=2; i++)
+    	System.out.format("*");
+    	System.out.format("***********/n");
+}
+    public static void main (String [] args) {
+    addRoof();
+    addBase();
+    addWalk();
+    
+    }
+}
