@@ -1,68 +1,36 @@
 import java.util.Scanner;
 public class GuessingGame {
+	public static int pickANumber (int lowNum, int highNum) {
+		double theNumber = (Math.random() * highNum + lowNum);
+		
+		return(int)theNumber;
+	}
+	public static void giveHint(int userGuess, int theNumber) {
+		
+		if (userGuess > theNumber)
+			System.out.println("Hint: try a lower number.");
+	    if (userGuess < theNumber)
+	    	System.out.println("Hint: try a higher number.");
+	}
 	public static void main (String []args) {
 		Scanner input = new Scanner(System.in);
+		int theNumber = pickANumber(1,20);
+		int userGuess;
 		
-		double myNum;
-		int guess;
+		do {
+			System.out.print("Enter a number betweeen 1 and 20.");
+			userGuess = input.nextInt();
+			giveHint(userGuess, theNumber);
+		} while (userGuess != theNumber);
 		
-		myNum = 19 * Math.random() + 1;
 		
-		
-		System.out.print("Enter a number between 1 and 20: ");
-		guess = input.nextInt();
-		
-	
-		
-		while (guess != myNum) {
-			giveHint();
+		if (userGuess == theNumber) {
+			System.out.print("You won!");
 			
-	    if (guess == myNum)
-		 System.out.print("You got it!");	
-	    
+			input.close();
 		}
-		
-		input.close();
-		
 	}
-		public static void giveHint() {
-		Scanner input = new Scanner(System.in);	
-		
-		final int myNum = 4;
-		int guess;
-		
-		
-		System.out.print("Enter a number between 1 and 20: ");
-		guess = input.nextInt();
-		
-	
-		if (guess > myNum) {
-			System.out.println("Hint: try a lower number. ");
-			guess = input.nextInt();
-			
-		if (guess < myNum) {
-			System.out.println("Hint: try a higher number. ");
-			guess = input.nextInt();
-			
-		
-			
-		} 
-		
-		input.close();
-		
-		{
-		
-		 if (guess == myNum)
-			 System.out.print("You got it!");
-			
-	
-		 
-		}
-		 
-	
-	}
-}
-}
 
+}
 
 
