@@ -1,30 +1,31 @@
+package q4;
 import java.util.Scanner;
 public class GuessingGame {
 	public static int pickANumber (int lowNum, int highNum) {
-		double theNumber = (Math.random() * highNum + lowNum);
+		double myNum = (Math.random() * highNum + lowNum);
 		
-		return(int)theNumber;
+		return(int)myNum;
 	}
-	public static void giveHint(int userGuess, int theNumber) {
+	public static void giveHint(int guess, int myNum) {
 		
-		if (userGuess > theNumber)
+		if (guess > myNum)
 			System.out.println("Hint: try a lower number.");
-	    if (userGuess < theNumber)
+	    if (guess < myNum)
 	    	System.out.println("Hint: try a higher number.");
 	}
 	public static void main (String []args) {
 		Scanner input = new Scanner(System.in);
-		int theNumber = pickANumber(1,20);
-		int userGuess;
+		int myNum = pickANumber(1,20);
+		int guess;
 		
 		do {
-			System.out.print("Enter a number betweeen 1 and 20.");
-			userGuess = input.nextInt();
-			giveHint(userGuess, theNumber);
-		} while (userGuess != theNumber);
+			System.out.print("Enter a number betweeen 1 and 20: ");
+			guess = input.nextInt();
+			giveHint(guess, myNum);
+		} while (guess != myNum);
 		
 		
-		if (userGuess == theNumber) {
+		if (guess == myNum) {
 			System.out.print("You won!");
 			
 			input.close();
@@ -32,5 +33,3 @@ public class GuessingGame {
 	}
 
 }
-
-
