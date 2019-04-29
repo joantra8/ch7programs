@@ -1,29 +1,34 @@
-
 import java.util.Scanner;
-
+/** Joan Tra
+ * Period 1
+ * Plays NimRandom game but specifically when the user has a certain number of stones left.
+ */
 public class NimStrategy {
 	
 	private static Scanner input;
 
-    public static void isValidEntry(int stones, int user) {
+    public static void isValidEntry(int numStones, int userEntry) {
+    	/* Determines if user-requested amount is valid.
+    	 * 
+    	 */
     	boolean isValid = true;
-    	if (stones < 3) {
-    		if (user > 2) {
+    	if (numStones < 3) {
+    		if (userEntry > 2) {
     		isValid = false;
     		}
-    		if (user <= 2) {
+    		if (userEntry <= 2) {
     			isValid  = true;
     		}
     	}
-    	if (stones < 2) {
-    		if (user < 1) {
+    	if (numStones < 2) {
+    		if (userEntry < 1) {
     			isValid = false;
     		}
-    		if (user == 1) {
+    		if (userEntry == 1) {
     			isValid = true;
     		}
     	}
-    	if (user > 3) {
+    	if (userEntry > 3) {
     		isValid = false;
     	}
     	if (isValid == false) {
@@ -40,69 +45,72 @@ public class NimStrategy {
     	} while (num < 0);
     	return num;
     }
-    public static void computerTurn(int stones, int computer) {
-    	System.out.print("There are " + stones + "stones.");
+    public static void computerTurn(int numStones, int computer) {
+    	System.out.print("There are " + numStones + "stones.");
     	System.out.print("The computer takes " + computer + " stones.");
     	}
     public static void main(String []args) {
+    	/* Executes each scenario of stones.
+    	 * 
+    	 */
     	int user;
-    	int stones;
-    	stones = (int) (16 * Math.random() + 15);
+    	int numStones;
+    	numStones = (int) (16 * Math.random() + 15);
     	Scanner input = new Scanner(System.in);
     	
-    	while (stones >= 1) {
-    		user = NimStrategy.user("There are " + stones + "stones. How many would you like?" );
-    		NimStrategy.isValidEntry(stones, user);
-    		stones = stones - user;
-    	if (stones >= 13) {
+    	while (numStones >= 1) {
+    		user = NimStrategy.user("There are " + numStones + "stones. How many would you like?" );
+    		NimStrategy.isValidEntry(numStones, user);
+    		numStones = numStones - user;
+    	if (numStones >= 13) {
     		int computer = (int) (3 * Math.random() + 1);
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones = computer;
-    	} else if (stones == 9 || stones == 5) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones = computer;
+    	} else if (numStones == 9 || numStones == 5) {
     		int computer = (int) (3 * Math.random() + 1);
-    	NimStrategy.computerTurn(stones, computer);
-    	stones = stones - computer;
-    	} else if (stones == 12) {
+    	NimStrategy.computerTurn(numStones, computer);
+    	numStones = numStones - computer;
+    	} else if (numStones == 12) {
     		int computer = 3;
-    	} else if (stones == 11) {
+    	} else if (numStones == 11) {
     		int computer = 2;
-    	} else if (stones == 10) {
+    	} else if (numStones == 10) {
     		int computer = 1;
-    	    NimStrategy.computerTurn(stones, computer);
-    	    stones = stones - computer;
-    	} else if (stones == 6) {
+    	    NimStrategy.computerTurn(numStones, computer);
+    	    numStones = numStones - computer;
+    	} else if (numStones == 6) {
     		int computer = 1;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 7) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 7) {
     		int computer = 2;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 8) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 8) {
     		int computer = 3;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 2) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 2) {
     		int computer = 1;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 3) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 3) {
     		int computer = 2;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 4) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 4) {
     		int computer = 3;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    	} else if (stones == 1) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    	} else if (numStones == 1) {
     		int computer = 1;
-    		NimStrategy.computerTurn(stones, computer);
-    		stones = stones - computer;
-    		if (stones == 1) {
+    		NimStrategy.computerTurn(numStones, computer);
+    		numStones = numStones - computer;
+    		if (numStones == 1) {
     			System.out.print("The player beats the computer.");
     		}
     	}
-    	if (stones == 0) {
+    	if (numStones == 0) {
     		System.out.println("The computer beats the player!");
     	}
     }
